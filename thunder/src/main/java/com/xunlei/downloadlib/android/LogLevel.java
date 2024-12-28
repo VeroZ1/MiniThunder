@@ -1,14 +1,12 @@
 package com.xunlei.downloadlib.android;
 
-
-/* compiled from: XLLog */
 enum LogLevel {
     LOG_LEVEL_VERBOSE(2),
     LOG_LEVEL_DEBUG(3),
     LOG_LEVEL_INFO(4),
     LOG_LEVEL_WARN(5),
     LOG_LEVEL_ERROR(6);
-    
+
     private final int logLevel;
 
     private LogLevel(int i) {

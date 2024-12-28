@@ -8,4 +8,7 @@ public class TorrentFileInfo {
     public String mSubPath;
     public String playUrl;
     public String hash;
+    public String torrentPath;
+
+    public boolean isSelected;
 }

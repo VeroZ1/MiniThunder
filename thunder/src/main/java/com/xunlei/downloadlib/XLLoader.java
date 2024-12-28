@@ -1,7 +1,5 @@
 package com.xunlei.downloadlib;
 
-import android.content.Context;
-import com.xunlei.downloadlib.android.XLLog;
 import com.xunlei.downloadlib.parameter.BtIndexSet;
 import com.xunlei.downloadlib.parameter.BtSubTaskDetail;
 import com.xunlei.downloadlib.parameter.BtTaskStatus;
@@ -13,7 +11,6 @@ import com.xunlei.downloadlib.parameter.MaxDownloadSpeedParam;
 import com.xunlei.downloadlib.parameter.ThunderUrlInfo;
 import com.xunlei.downloadlib.parameter.TorrentInfo;
 import com.xunlei.downloadlib.parameter.UrlQuickInfo;
-import com.xunlei.downloadlib.parameter.XLSessionInfo;
 import com.xunlei.downloadlib.parameter.XLTaskInfo;
 import com.xunlei.downloadlib.parameter.XLTaskInfoEx;
 import com.xunlei.downloadlib.parameter.XLTaskLocalUrl;
@@ -21,7 +18,29 @@ import com.xunlei.downloadlib.parameter.XLTaskLocalUrl;
 class XLLoader {
     private static final String TAG = "XLLoader";
 
+    public native boolean XYVodSDK_getSdkEnabled();
+
+    public native String XYVodSDK_getUnixSockPath();
+
+    public native String XYVodSDK_getVersion();
+
+    public native int XYVodSDK_initUnixSock(String str);
+
+    public native int XYVodSDK_networkChanged();
+
+    public native int XYVodSDK_release();
+
+    public native int XYVodSDK_setLogEnable(int i);
+
+    public native int XYVodSDK_setNetworkEnable();
+
+    public native int XYVodSDK_setStableVersion(String str);
+
+    public native int XYVodSDK_stopTask(String str);
+
     public native int addPeerResource(long j, String str, long j2, String str2, String str3, int i, int i2, int i3, int i4, int i5, int i6, int i7);
+
+    public native int addScdnResource(long j, String str);
 
     public native int addServerResource(long j, String str, String str2, String str3, int i, int i2);
 
@@ -30,8 +49,6 @@ class XLLoader {
     public native int btAddServerResource(long j, int i, String str, String str2, String str3, int i2, int i3);
 
     public native int btRemoveAddedResource(long j, int i, int i2);
-
-    public native int clearTaskFile(String str);
 
     public native int createBtMagnetTask(String str, String str2, String str3, GetTaskId getTaskId);
 
@@ -43,11 +60,11 @@ class XLLoader {
 
     public native int createP2spTask(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, int i2, GetTaskId getTaskId);
 
-    public native int createShortVideoTask(String str, String str2, String str3, String str4, int i, int i2, int i3, GetTaskId getTaskId);
-
     public native int deselectBtSubTask(long j, BtIndexSet btIndexSet);
 
     public native int enterPrefetchMode(long j);
+
+    public native int enterUltimateSpeed(int i);
 
     public native int getBtSubTaskInfo(long j, int i, BtSubTaskDetail btSubTaskDetail);
 
@@ -65,8 +82,6 @@ class XLLoader {
 
     public native int getNameFromUrl(String str, String str2);
 
-    public native int getSessionInfoByUrl(String str, XLSessionInfo xLSessionInfo);
-
     public native int getTaskInfo(long j, int i, XLTaskInfo xLTaskInfo);
 
     public native int getTaskInfoEx(long j, XLTaskInfoEx xLTaskInfoEx);
@@ -75,15 +90,13 @@ class XLLoader {
 
     public native int getUrlQuickInfo(long j, UrlQuickInfo urlQuickInfo);
 
-    public native int init(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, int i2);
+    public native int init(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, int i2, int i3);
 
     public native boolean isLogTurnOn();
 
     public native int notifyNetWorkType(int i);
 
     public native int parserThunderUrl(String str, ThunderUrlInfo thunderUrlInfo);
-
-    public native int playShortVideoBegin(long j);
 
     public native int releaseTask(long j);
 
@@ -129,17 +142,13 @@ class XLLoader {
 
     public native int setTaskLxState(long j, int i, int i2);
 
-    public native int setTaskUid(long j, int i);
+    public native int setTaskUidWithPid(long j, int i, int i2);
 
     public native int setUserId(String str);
 
-    public native int startDcdn(long j, int i, String str, String str2, String str3);
-
-    public native int startTask(long j, boolean z);
+    public native int startTask(long j);
 
     public native int statExternalInfo(long j, int i, String str, String str2);
-
-    public native int stopDcdn(long j, int i);
 
     public native int stopTask(long j);
 
@@ -151,8 +160,6 @@ class XLLoader {
 
     public XLLoader() {
         System.loadLibrary("xl_stat");
-        System.loadLibrary("xluagc");
         System.loadLibrary("xl_thunder_sdk");
-        System.loadLibrary("xl_thunder_iface");
     }
 }

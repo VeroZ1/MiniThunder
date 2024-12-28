@@ -3,6 +3,7 @@ package com.xunlei.downloadlib.android;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,6 @@ import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/* compiled from: XLLog */
 final class XLLogInternal {
     private static final SimpleDateFormat DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     private File mFile;

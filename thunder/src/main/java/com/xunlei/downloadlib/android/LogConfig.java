@@ -1,12 +1,12 @@
 package com.xunlei.downloadlib.android;
 
 import android.text.TextUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-/* compiled from: XLLog */
 final class LogConfig {
     private final int mDestinationType;
     final String mFileName;

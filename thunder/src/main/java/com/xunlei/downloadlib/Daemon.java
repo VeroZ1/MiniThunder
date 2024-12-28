@@ -6,7 +6,6 @@ import android.os.Looper;
  * 常驻的后台线程，用于处理一个消息循环
  * <p/>
  * 一般用于处理运算密集型任务、磁盘IO任务等执行时间小于1秒的任务
- *
  */
 public class Daemon {
     private static volatile boolean shouldStop;

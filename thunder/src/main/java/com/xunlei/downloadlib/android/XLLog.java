@@ -2,13 +2,13 @@ package com.xunlei.downloadlib.android;
 
 import android.os.Environment;
 import android.util.Log;
+
 import java.io.File;
 
 public class XLLog {
     private static LogConfig mLogConfig = null;
     private static XLLogInternal mXLLogInternal;
 
-    @Deprecated
     public static boolean init(String str) {
         return init();
     }
@@ -62,6 +62,7 @@ public class XLLog {
     }
 
     static void log(LogLevel logLevel, String str, String str2) {
+        Log.println(LogLevel.LOG_LEVEL_ERROR.getValue(), str+"-XL", str2);
         Object obj = null;
         if (logLevel == LogLevel.LOG_LEVEL_ERROR || (mLogConfig != null && mLogConfig.canLogToLogCat())) {
             obj = 1;

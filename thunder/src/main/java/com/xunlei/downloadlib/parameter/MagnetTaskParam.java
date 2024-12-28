@@ -26,8 +26,6 @@ public class MagnetTaskParam {
         this.mFilePath = str;
     }
 
-
-
     public boolean checkMemberVar() {
         if (this.mFileName == null || this.mFilePath == null || this.mUrl == null) {
             return false;

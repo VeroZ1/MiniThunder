@@ -2,22 +2,20 @@ package com.xunlei.downloadlib.parameter;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
 
 public class XLTaskInfo implements Parcelable {
     public static final Creator<XLTaskInfo> CREATOR = new Creator<XLTaskInfo>() {
-        public final XLTaskInfo createFromParcel(Parcel parcel) {
+        @Override
+        public XLTaskInfo createFromParcel(Parcel parcel) {
             return new XLTaskInfo(parcel);
         }
 
-        public final XLTaskInfo[] newArray(int i) {
+        @Override
+        public XLTaskInfo[] newArray(int i) {
             return new XLTaskInfo[i];
         }
     };
-    public int mAddedHighSourceState;
     public int mAdditionalResCount;
-    public long mAdditionalResDCDNBytes;
-    public long mAdditionalResDCDNSpeed;
     public long mAdditionalResPeerBytes;
     public long mAdditionalResPeerSpeed;
     public int mAdditionalResType;
@@ -38,11 +36,16 @@ public class XLTaskInfo implements Parcelable {
     public long mP2SRecvBytes;
     public long mP2SSpeed;
     public int mQueryIndexStatus;
+    public long mScdnRecvBytes;
+    public long mScdnSpeed;
     public long mTaskId;
     public int mTaskStatus;
 
     public int describeContents() {
         return 0;
+    }
+
+    public XLTaskInfo() {
     }
 
     public void writeToParcel(Parcel parcel, int i) {
@@ -69,9 +72,8 @@ public class XLTaskInfo implements Parcelable {
         parcel.writeLong(this.mAdditionalResVipRecvBytes);
         parcel.writeLong(this.mAdditionalResPeerSpeed);
         parcel.writeLong(this.mAdditionalResPeerBytes);
-    }
-
-    public XLTaskInfo() {
+        parcel.writeLong(this.mScdnSpeed);
+        parcel.writeLong(this.mScdnRecvBytes);
     }
 
     public XLTaskInfo(Parcel parcel) {
@@ -98,5 +100,7 @@ public class XLTaskInfo implements Parcelable {
         this.mAdditionalResVipRecvBytes = parcel.readLong();
         this.mAdditionalResPeerSpeed = parcel.readLong();
         this.mAdditionalResPeerBytes = parcel.readLong();
+        this.mScdnSpeed = parcel.readLong();
+        this.mScdnRecvBytes = parcel.readLong();
     }
 }
